@@ -17,7 +17,7 @@ Follow the steps below to run this application locally:
    Clone the repository to your local machine:
 
    ```bash
-   git clone https://github.com/your-username/qr-code-generator.git
+   git clone https://github.com/Faktor22/qr-code-generator.git
 
    ```
 

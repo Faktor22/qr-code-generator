@@ -40,47 +40,98 @@ function App() {
   };
 
   return (
-    <div style={{ textAlign: "center", padding: "20px" }}>
-      <h1>QR Code Generator</h1>
+    <div
+      style={{
+        textAlign: "center",
+        padding: "20px",
+        backgroundColor: "#f4f7fc",
+        minHeight: "100vh"
+      }}
+    >
+      <h1 style={{ color: "#2c3e50" }}>QR Code Generator</h1>
       <input
         type="text"
         value={url}
         onChange={handleChange}
         placeholder="Enter your URL"
-        style={{ padding: "10px", width: "300px" }}
+        style={{
+          padding: "10px",
+          width: "300px",
+          fontSize: "16px",
+          borderRadius: "5px",
+          border: "1px solid #ccc",
+          boxShadow: "0 2px 4px rgba(0, 0, 0, 0.1)",
+          marginBottom: "15px"
+        }}
       />
       <br />
       <button
         onClick={handleGenerateQRCode}
-        style={{ padding: "10px 20px", marginTop: "10px" }}
+        style={{
+          padding: "10px 20px",
+          marginTop: "10px",
+          backgroundColor: "#3498db",
+          color: "white",
+          border: "none",
+          borderRadius: "5px",
+          fontSize: "16px",
+          cursor: "pointer",
+          boxShadow: "0 2px 4px rgba(0, 0, 0, 0.1)"
+        }}
       >
         Generate QR Code
       </button>
 
       {generatedUrl && (
-        <div style={{ marginTop: "20px" }}>
+        <div
+          style={{
+            marginTop: "30px",
+            textAlign: "center"
+          }}
+        >
           {/* SVG QR code */}
-          <QRCodeSVG value={generatedUrl} />
-
-          <div style={{ marginTop: "20px" }}>
-            {/* PNG QR code (Canvas component) */}
-            <QRCodeCanvas
-              value={generatedUrl}
-              ref={canvasRef}
-              style={{ display: "none" }}
-            />
+          <div style={{ marginBottom: "20px" }}>
+            <QRCodeSVG value={generatedUrl} size={256} />
           </div>
+
+          {/* PNG QR code (Canvas component) */}
+          <QRCodeCanvas
+            value={generatedUrl}
+            ref={canvasRef}
+            style={{ display: "none" }}
+            size={256}
+          />
 
           <div style={{ marginTop: "20px" }}>
             <button
               onClick={handleDownloadQRCodeSVG}
-              style={{ padding: "10px 20px", margin: "5px" }}
+              style={{
+                padding: "10px 20px",
+                margin: "5px",
+                backgroundColor: "#2ecc71",
+                color: "white",
+                border: "none",
+                borderRadius: "5px",
+                fontSize: "16px",
+                cursor: "pointer",
+                boxShadow: "0 2px 4px rgba(0, 0, 0, 0.1)"
+              }}
             >
               Download SVG
             </button>
             <button
               onClick={handleDownloadQRCodePNG}
-              style={{ padding: "10px 20px", margin: "5px" }}
+              style={{
+                padding: "10px 20px",
+                margin: "5px",
+                backgroundColor: "#e74c3c",
+                color: "white",
+                border: "none",
+                borderRadius: "5px",
+                fontSize: "16px",
+                cursor: "pointer",
+                boxShadow: "0 2px 4px rgba(0, 0, 0, 0.1)"
+              }}
             >
               Download PNG
             </button>
