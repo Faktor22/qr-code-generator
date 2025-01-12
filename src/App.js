@@ -4,7 +4,7 @@ import { QRCodeSVG, QRCodeCanvas } from "qrcode.react";
 function App() {
   const [url, setUrl] = useState("");
   const [generatedUrl, setGeneratedUrl] = useState("");
-  const canvasRef = useRef(null); // Reference for QRCodeCanvas
+  const canvasRef = useRef(null);
 
   const handleChange = (e) => {
     setUrl(e.target.value);
@@ -31,7 +31,7 @@ function App() {
 
   const handleDownloadQRCodePNG = () => {
     if (canvasRef.current) {
-      const pngUrl = canvasRef.current.toDataURL("image/png"); // Generate PNG from canvas
+      const pngUrl = canvasRef.current.toDataURL("image/png");
       const a = document.createElement("a");
       a.href = pngUrl;
       a.download = "qrcode.png";
@@ -44,11 +44,24 @@ function App() {
       style={{
         textAlign: "center",
         padding: "20px",
-        backgroundColor: "#f4f7fc",
-        minHeight: "100vh"
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        position: "fixed",
+        top: "50%",
+        left: "50%",
+        transform: "translate(-50%, -50%)"
       }}
     >
-      <h1 style={{ color: "#2c3e50" }}>QR Code Generator</h1>
+      <img
+        src={`/img/logo-qr.svg`}
+        alt={`QR Code Generator`}
+        style={{
+          width: "150px",
+          height: "auto",
+          marginBottom: "20px"
+        }}
+      />
       <input
         type="text"
         value={url}
@@ -70,8 +83,8 @@ function App() {
         style={{
           padding: "10px 20px",
           marginTop: "10px",
-          backgroundColor: "#3498db",
-          color: "white",
+          backgroundColor: "rgb(90, 255, 208);",
+          color: "black",
           border: "none",
           borderRadius: "5px",
           fontSize: "16px",
@@ -108,7 +121,7 @@ function App() {
               style={{
                 padding: "10px 20px",
                 margin: "5px",
-                backgroundColor: "#2ecc71",
+                backgroundColor: "rgb(255, 107, 190);",
                 color: "white",
                 border: "none",
                 borderRadius: "5px",
@@ -124,9 +137,9 @@ function App() {
               style={{
                 padding: "10px 20px",
                 margin: "5px",
-                backgroundColor: "#e74c3c",
+                backgroundColor: "unset",
+                border: "1px solid #fff",
                 color: "white",
-                border: "none",
                 borderRadius: "5px",
                 fontSize: "16px",
                 cursor: "pointer",
@@ -136,6 +149,9 @@ function App() {
               Download PNG
             </button>
           </div>
+          <p style={{ color: "#575757", fontSize: "12px", marginTop: "20px" }}>
+            © by Faktor 22
+          </p>
         </div>
       )}
     </div>

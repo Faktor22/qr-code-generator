@@ -2,6 +2,8 @@
 
 This application makes it easy to generate QR codes for a given URL. The generated QR code can be downloaded in two different formats: SVG and PNG.
 
+![Calculator Screenshot](https://i.ibb.co/dJnv9nW/qr.png)
+
 ## Features
 
 - Enter a URL and generate a QR code.
